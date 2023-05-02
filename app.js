@@ -1,28 +1,110 @@
-// Book library.
+// Variables.
+const booksContainer = document.querySelector(".books");
+const form = document.getElementById("form");
+
+// Book library array.
 let myLibrary = [];
 
-// let bookOne = myLibrary[0];
-// console.log(bookOne.title)
 
 // Book constructor.   
-function Book(title,author,pages,status) {
+function Book(title, author, pages, status) {
   this.title = title;
-  this.author =  author;
+  this.author = author;
   this.pages = pages;
   this.status = status;
 }
 
-// Manually created books.
-const bookOne = new Book("Siddhartha","Herman Hesse",150,"Read");
-const bookTwo = new Book("Me","John Hook",200,"Not read");
-const bookThree = new Book("The Idiot","Fyodor Dostoevsky",500,"Read");
 
-// console.log(bookThree.pages)
+// Add book to array function.
+function addBookToLibrary() {
 
-// Add book to arry function.
-function addBookToLibrary(book) {
-  myLibrary.push(book)
+  // Gets values from form.
+  let title = document.getElementById("title").value;
+  let author = document.getElementById("author").value;
+  let pages = document.getElementById("pages").value;
+  let status = document.getElementById("read").value;
+
+  // Creates new book object. 
+  let newBook = new Book (title, author, pages, status);
+
+  // Checks if book already in the library array. 
+  let exists = false;
+  for (let i = 0; i<myLibrary.length; i++){
+    if(myLibrary[i].title === newBook.title) {
+      exists = true;
+      break;
+    }
+    else continue
+  }
+
+  // If book is in the array error pops up on from ////Still need to create error
+  if (exists){
+    console.log("ERROR: Book already in library.")
+  }
+  // If the new book is'nt in the library array, it adds it, sends to render to page and clears form.
+  else{
+    myLibrary.push(newBook);
+    render()
+  }
 }
 
-// addBookToLibrary(bookTwo);
-// console.log(myLibrary)
+// Event listener for Add Book btn. 
+form.addEventListener("submit",(e)=>{
+  e.preventDefault();
+  addBookToLibrary();
+});
+
+
+// Renders the new book object to page (always renders the last item in the array).
+function render(){ 
+
+  // Sets i to be the index of last book in the library array.
+  let i = myLibrary.length-1;
+  
+  
+  let bookCard = document.createElement("div");
+  bookCard.classList.add("book-card");
+  
+  let title = myLibrary[i].title;
+  let author = myLibrary[i].author;
+  let pages = myLibrary[i].pages;
+  let status = myLibrary[i].status;
+
+  // Adds id to book card to help find the index.
+  bookCard.setAttribute("id",title)
+  
+  
+  let titlePara = document.createElement("p");
+  let authorPara = document.createElement("p");
+  let pagesPara = document.createElement("p");
+  let statusPara = document.createElement("p");
+  let removeBtn = document.createElement("button");
+
+  titlePara.classList.add("title-p");
+  authorPara.classList.add("author-p");
+  pagesPara.classList.add("pages-p");
+  statusPara.classList.add("status-p");
+  removeBtn.classList.add("remove-btn");
+
+  
+  
+  titlePara.innerText = title;
+  authorPara.innerText = author;
+  pagesPara.innerText = pages;
+  statusPara.innerText = status;
+  removeBtn.innerText = "Remove Book";
+  
+  
+  bookCard.append(titlePara,authorPara,pagesPara,statusPara,removeBtn);
+  booksContainer.append(bookCard);
+  
+  // Adds event listener which deletes book from array and removes it from the page.
+  removeBtn.addEventListener("click", (e)=>{
+    const index = myLibrary.findIndex(object => {
+      return object.title === title;
+    });
+    myLibrary.splice(index,1)
+    e.currentTarget.parentNode.remove();
+    console.log(myLibrary)
+  });
+}
