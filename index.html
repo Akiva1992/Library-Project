@@ -13,9 +13,10 @@
 </head>
 
 <body>
-    <div class="header container"><h1>Book Library</h1></div>
+    <div class="header container"><h1 class="logo">Book Library</h1></div>
     <div class="main-content">
-        <form action="" method="" id="form">
+        <form action="" method="" id="form" style="display: none;">
+            <div class="close-btn-container"><button class="close-form-btn">X</button></div>
             <h2>Add A New Book</h2>
             <div class="title-form container">
                 <label for="title">Title:</label>
@@ -30,16 +31,19 @@
                 <input type="number" id="pages" name="pages" required>
             </div>
             <div class="radio-form container">
-                <input type="checkbox" id="read" name="status" value="Read" required>
-                <label for="read">Read</label>
+                <input type="checkbox" id="read-checkbox" name="status" value="Read">
+                <label for="read">I've read it</label>
             </div>
             <div class="submit-form container">
                 <button type="submit" id="add-book-btn">Add Book</button>
             </div>
         </form>
-        <div class="books container"></div>
+        <div class="books container">
+            
+        </div>
     </div>
-    <footer>Made by Akiva &copy</footer>
+    <button class="new-book-btn">New Book+</button>
+    <footer>Made by Akiva &copy 2023</footer>
     <script src="./app.js"></script>
 </body>
 

@@ -1,6 +1,9 @@
 // Variables.
 const booksContainer = document.querySelector(".books");
 const form = document.getElementById("form");
+const newBookBtn = document.querySelector(".new-book-btn")
+const closeFormBtn = document.querySelector(".close-form-btn");
+
 
 // Book library array.
 let myLibrary = [];
@@ -22,7 +25,12 @@ function addBookToLibrary() {
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
   let pages = document.getElementById("pages").value;
-  let status = document.getElementById("read").value;
+  let status = document.getElementById("read-checkbox");
+  if ( status.checked ) {
+    status = "Read";
+ } else {
+  status = "Not Read";
+}
 
   // Creates new book object. 
   let newBook = new Book (title, author, pages, status);
@@ -77,25 +85,27 @@ function render(){
   let titlePara = document.createElement("p");
   let authorPara = document.createElement("p");
   let pagesPara = document.createElement("p");
-  let statusPara = document.createElement("p");
+  let statusBtn = document.createElement("button");
   let removeBtn = document.createElement("button");
+  // statusCheckbox.setAttribute("type", "checkbox");
+
 
   titlePara.classList.add("title-p");
   authorPara.classList.add("author-p");
   pagesPara.classList.add("pages-p");
-  statusPara.classList.add("status-p");
+  statusBtn.classList.add("status-btn");
   removeBtn.classList.add("remove-btn");
 
   
-  
+
+  statusBtn.innerText=status;
   titlePara.innerText = title;
   authorPara.innerText = author;
   pagesPara.innerText = pages;
-  statusPara.innerText = status;
   removeBtn.innerText = "Remove Book";
   
   
-  bookCard.append(titlePara,authorPara,pagesPara,statusPara,removeBtn);
+  bookCard.append(titlePara,authorPara,pagesPara,statusBtn,removeBtn);
   booksContainer.append(bookCard);
   
   // Adds event listener which deletes book from array and removes it from the page.
@@ -108,3 +118,14 @@ function render(){
     console.log(myLibrary)
   });
 }
+
+closeFormBtn.addEventListener("click", (e)=>{
+  e.preventDefault()
+  form.reset()
+  form.style.display = "none";
+});
+
+
+newBookBtn.addEventListener("click", ()=>{
+  form.style.display = "block"
+});
