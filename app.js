@@ -3,11 +3,10 @@ const booksContainer = document.querySelector(".books");
 const form = document.getElementById("form");
 const newBookBtn = document.querySelector(".new-book-btn")
 const closeFormBtn = document.querySelector(".close-form-btn");
-
-
+const formTitleInput = document.getElementById("title");
+const titleErrorDiv = document.getElementById("title-error-div");
 // Book library array.
 let myLibrary = [];
-
 
 // Book constructor.   
 function Book(title, author, pages, status) {
@@ -18,114 +17,121 @@ function Book(title, author, pages, status) {
 }
 
 
+///////Functions/////////////////
 // Add book to array function.
 function addBookToLibrary() {
-
   // Gets values from form.
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
   let pages = document.getElementById("pages").value;
   let status = document.getElementById("read-checkbox");
-  if ( status.checked ) {
-    status = "Read";
- } else {
-  status = "Not Read";
-}
+  (status.checked) ? status = "Read" : status = "Not Read";
 
   // Creates new book object. 
-  let newBook = new Book (title, author, pages, status);
+  let newBook = new Book(title, author, pages, status);
 
-  // Checks if book already in the library array. 
+  // let exists = checkIfBookInLibrary(title,newBook)
+  checkIfBookInLibrary(title, newBook)
+}
+
+function checkIfBookInLibrary(title, newBook) {
   let exists = false;
-  for (let i = 0; i<myLibrary.length; i++){
-    if(myLibrary[i].title === newBook.title) {
-      exists = true;
-      break;
+
+  for (let i = 0; i < myLibrary.length; i++) {
+    if (myLibrary[i].title === newBook.title) {
+      exists = true
     }
     else continue
   }
 
-  // If book is in the array error pops up on from ////Still need to create error
-  if (exists){
-    console.log("ERROR: Book already in library.")
+  // If book is in the array error pops up on from.
+  if (exists) {
+    console.log("ERROR: Book already in library.");
+    formTitleInput.style.borderColor = "red";
+    titleErrorDiv.innerText = "*This book already exists";
   }
-  // If the new book is'nt in the library array, it adds it, sends to render to page and clears form.
-  else{
+  // If the new book is'nt in the library array, it adds it to library, sends to render to page and clears form and error div.
+  else {
     myLibrary.push(newBook);
+    clearForm()
     render()
   }
 }
 
-// Event listener for Add Book btn. 
-form.addEventListener("submit",(e)=>{
-  e.preventDefault();
-  addBookToLibrary();
-});
-
-
 // Renders the new book object to page (always renders the last item in the array).
-function render(){ 
+function render() {
 
   // Sets i to be the index of last book in the library array.
-  let i = myLibrary.length-1;
-  
-  
-  let bookCard = document.createElement("div");
-  bookCard.classList.add("book-card");
-  
+  let i = myLibrary.length - 1;
+
   let title = myLibrary[i].title;
   let author = myLibrary[i].author;
   let pages = myLibrary[i].pages;
   let status = myLibrary[i].status;
 
+  // Appends book to book container. 
+  booksContainer.append(createBookCard(title, author, pages, status));
+}
+
+function createBookCard(title, author, pages, status) {
+  let bookCard = document.createElement("div");
+  bookCard.classList.add("book-card");
   // Adds id to book card to help find the index.
-  bookCard.setAttribute("id",title)
-  
-  
+  bookCard.setAttribute("id", title)
+
   let titlePara = document.createElement("p");
-  let authorPara = document.createElement("p");
-  let pagesPara = document.createElement("p");
-  let statusBtn = document.createElement("button");
-  let removeBtn = document.createElement("button");
-  // statusCheckbox.setAttribute("type", "checkbox");
-
-
   titlePara.classList.add("title-p");
-  authorPara.classList.add("author-p");
-  pagesPara.classList.add("pages-p");
-  statusBtn.classList.add("status-btn");
-  removeBtn.classList.add("remove-btn");
-
-  
-
-  statusBtn.innerText=status;
   titlePara.innerText = title;
+
+  let authorPara = document.createElement("p");
+  authorPara.classList.add("author-p");
   authorPara.innerText = author;
+
+  let pagesPara = document.createElement("p");
+  pagesPara.classList.add("pages-p");
   pagesPara.innerText = pages;
+
+  let statusBtn = document.createElement("button");
+  statusBtn.classList.add("status-btn");
+  statusBtn.innerText = status;
+
+  let removeBtn = document.createElement("button");
+  removeBtn.classList.add("remove-btn");
   removeBtn.innerText = "Remove Book";
-  
-  
-  bookCard.append(titlePara,authorPara,pagesPara,statusBtn,removeBtn);
-  booksContainer.append(bookCard);
-  
+
+  bookCard.append(titlePara, authorPara, pagesPara, statusBtn, removeBtn);
+
   // Adds event listener which deletes book from array and removes it from the page.
-  removeBtn.addEventListener("click", (e)=>{
+  removeBtn.addEventListener("click", (e) => {
     const index = myLibrary.findIndex(object => {
       return object.title === title;
     });
-    myLibrary.splice(index,1)
+    myLibrary.splice(index, 1)
     e.currentTarget.parentNode.remove();
-    console.log(myLibrary)
   });
+
+  return bookCard
 }
 
-closeFormBtn.addEventListener("click", (e)=>{
-  e.preventDefault()
+function clearForm() {
   form.reset()
-  form.style.display = "none";
+  formTitleInput.style.borderColor = "black";
+  titleErrorDiv.innerText = "";
+}
+
+
+///////////Event Listeners////////////
+// Event listener for Add Book btn. 
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  addBookToLibrary();
 });
 
+closeFormBtn.addEventListener("click", (e) => {
+  e.preventDefault()
+  clearForm()
+});
 
-newBookBtn.addEventListener("click", ()=>{
+newBookBtn.addEventListener("click", () => {
   form.style.display = "block"
 });
