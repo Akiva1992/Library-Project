@@ -164,10 +164,46 @@ body {
   border: 1px var(--accent-clr) solid;
   border-radius: var(--border-radius);
   background-color: var(--primary-clr);
-  position: sticky;
-  top: 20%;
+  position: absolute;
   margin-top: var(--small-size);
+}
 
+h2.about-header{
+  margin: var(--tiny-size) 0;
+}
+
+.about-header-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px var(--accent-clr) solid;
+  border-radius: var(--border-radius);
+  padding: var(--tiny-size) var(--small-size);
+}
+
+.close-about.btn{
+  background-color: var(--primary-clr);
+  padding: var(--small-size);
+  border: none;
+}
+
+.about-section{
+  position: relative;
+  margin-top: var(--medium-size);
+  border: 1px var(--accent-clr) solid;
+  border-radius: var(--border-radius);
+}
+
+a.link-to-odin{
+  white-space: pre-wrap; /* CSS3 */    
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */    
+  white-space: -o-pre-wrap; /* Opera 7 */    
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+p.about-txt{
+  padding: var(--tiny-size) var(--small-size);
 }
 
 .form-header-container{

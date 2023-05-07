@@ -1,10 +1,14 @@
 // Variables.
 const booksContainer = document.querySelector(".books");
 const form = document.getElementById("form");
-const newBookBtn = document.querySelector(".new-book.btn")
+const newBookBtn = document.querySelector(".new-book.btn");
 const closeFormBtn = document.querySelector(".close-form.btn");
 const formTitleInput = document.getElementById("title");
 const titleErrorDiv = document.getElementById("title-error-div");
+const aboutBtn = document.querySelector(".about.btn");
+const aboutSection = document.querySelector(".about-section");
+const closeAbout = document.querySelector(".close-about");
+console.log(aboutBtn,aboutSection)
 // Book library array.
 let myLibrary = [];
 
@@ -38,6 +42,7 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
     clearForm()
     form.style.display = "none"
+    // newBookBtn.style.display = "block";
     render()
   }
 }
@@ -154,10 +159,28 @@ form.addEventListener("submit", (e) => {
 closeFormBtn.addEventListener("click", (e) => {
   e.preventDefault()
   clearForm()
-  form.style.display = "none"
+  form.style.display = "none";
+  // newBookBtn.style.display = "block";
 });
 
 newBookBtn.addEventListener("click", () => {
-  form.style.display = "block"
+  form.style.display = "block";
+  aboutSection.style.display = "none";
+});
+
+aboutBtn.addEventListener("click", (e)=>{
+  aboutSection.style.display = "block";
+  form.style.display = "none";
+  titleErrorDiv.innerText = "";
+  clearForm()
+  console.log("got it")
+});
+
+closeAbout.addEventListener("click", ()=>{
+  aboutSection.style.display = "none";
+  form.style.display = "none";
+  titleErrorDiv.innerText = "";
+  clearForm()
+
 });
 
