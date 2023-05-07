@@ -145,6 +145,7 @@ form.addEventListener("submit", (e) => {
 closeFormBtn.addEventListener("click", (e) => {
   e.preventDefault()
   clearForm()
+  form.style.display = "none"
 });
 
 newBookBtn.addEventListener("click", () => {

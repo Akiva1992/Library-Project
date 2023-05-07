@@ -75,41 +75,138 @@ select {
 }
 
 body {
-  font-family: 'Bitter', serif;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
 }
 
-.container{
+
+.header-container{
+  background-color:#FFF;
+  position:fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  gap: 2rem;
+}
+
+.logo-container{
+  padding: 1rem;
+  background-color:#00C6CF;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo{
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.about-btn{
+  background-color: #00C6CF;
+  border: none;
+}
+
+.new-book-btn{
+  margin: auto;
+  font-size: 1.5rem;
+  background-color:#00C6CF;
+  color: #fff;
+  border: none;
+  width: fit-content;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+
+}
+
+
+.main-content{
+  margin: auto;
+  padding: 1.5rem;
 }
 
 
 #form{
+  border: 1px #18483B solid;
+  border-radius: 6px;
+  background-color: #FFF;
+  position: absolute;
+  top: 25%;
+  left: 5%;
 
 }
 
-.close-btn-container{
+.form-header-container{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px #18483B solid;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
 }
 
+.form-header{
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #18483B;
+}
 .close-form-btn{
+  background-color: #FFF;
+  border: none;
+}
+
+.form-text-fields{
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-container{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+label{
+  font-size: 1.4rem;
+}
+
+.form-click-fields{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 1.5rem;
 
 }
 
-.header{
+#add-book-btn{
+  margin: auto;
+  font-size: 1.5rem;
+  background-color:#00C6CF;
+  color: #fff;
+  border: none;
+  width: fit-content;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
 }
 
-.logo{
-}
-.main-content{
-}
-
-.books.container{
+input[type=checkbox] {
+  transform: scale(1.5);
 }
 
-.book-card{
-
-}
-
-.new-book-btn{
-}
 footer{
+  position: fixed;
+  bottom: 0;
+  background-color:#00C6CF;
+  width: 100vw;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  padding: 1.1rem;
 }
-
