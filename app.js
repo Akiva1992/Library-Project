@@ -1,8 +1,8 @@
 // Variables.
 const booksContainer = document.querySelector(".books");
 const form = document.getElementById("form");
-const newBookBtn = document.querySelector(".new-book-btn")
-const closeFormBtn = document.querySelector(".close-form-btn");
+const newBookBtn = document.querySelector(".new-book.btn")
+const closeFormBtn = document.querySelector(".close-form.btn");
 const formTitleInput = document.getElementById("title");
 const titleErrorDiv = document.getElementById("title-error-div");
 // Book library array.
@@ -70,27 +70,36 @@ function createBookCard(title, author, pages, status) {
   // Adds #id to book card to help find the index.
   bookCard.setAttribute("id", title)
 
-  let titlePara = document.createElement("p");
-  titlePara.classList.add("title-p");
-  titlePara.innerText = title;
+  let bookContent = document.createElement("div");
+  bookContent.classList.add("book-content");
 
-  let authorPara = document.createElement("p");
-  authorPara.classList.add("author-p");
-  authorPara.innerText = author;
+  let bookBtns = document.createElement("div");
+  bookBtns.classList.add("book-btns");
 
-  let pagesPara = document.createElement("p");
-  pagesPara.classList.add("pages-p");
-  pagesPara.innerText = pages;
+
+  let titleDetails = document.createElement("p");
+  titleDetails.classList.add("title","details");
+  titleDetails.innerText = `Title : ${title}`;
+
+  let authorDetails = document.createElement("p");
+  authorDetails.classList.add("author","details");
+  authorDetails.innerText = `Author : ${author}`;
+
+  let pagesDetails = document.createElement("p");
+  pagesDetails.classList.add("pages","details");
+  pagesDetails.innerText = `Pages : ${pages}`;
 
   let statusBtn = document.createElement("button");
-  statusBtn.classList.add("status-btn");
+  statusBtn.classList.add("status","btn");
   status ? statusBtn.innerText = "Read" : statusBtn.innerText = "Not Read";
 
   let removeBtn = document.createElement("button");
-  removeBtn.classList.add("remove-btn");
+  removeBtn.classList.add("remove","btn");
   removeBtn.innerText = "Remove Book";
 
-  bookCard.append(titlePara, authorPara, pagesPara, statusBtn, removeBtn);
+  bookContent.append(titleDetails,authorDetails,pagesDetails);
+  bookBtns.append(statusBtn,removeBtn);
+  bookCard.append(bookContent,bookBtns);
 
   // Adds event listener which deletes book from array and removes it from the page.
   removeBtn.addEventListener("click", (e) => {
@@ -98,7 +107,7 @@ function createBookCard(title, author, pages, status) {
       return object.title === title;
     });
     myLibrary.splice(indexFound, 1)
-    e.currentTarget.parentNode.remove();
+    e.currentTarget.parentNode.parentNode.remove();
   });
 
   statusBtn.addEventListener("click", (e) => {
