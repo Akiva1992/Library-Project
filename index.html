@@ -20,44 +20,44 @@
         </div>
         <button class="new-book btn">New Book+</button>
     </div>
-    <div class="main-content">
-        <div class="about-section" style="display: none;" >
-            <div class="about-header-container">
-                <h2 class="about-header">About the Project:</h2>
-                <button class="close-about btn"><img src="./imgs/close btn.svg" alt="Close About Section"></button>
-            </div>
-            <p class="about-txt">This project is an assignment from The Odin Project's Full Stack JavaScript curriculum. The project involves creating a book library application that allows users to add and remove books, as well as update their reading status. The Odin Project is an online platform that provides free and open-source web development courses. The application involves creating a simple array to store book objects, writing a function to add books to the array, displaying the books on the page, and creating buttons to remove books and update their reading status. For more information about the project and the Full Stack JavaScript course, please visit: <a class="link-to-odin" href="https://www.theodinproject.com/lessons/node-path-javascript-library">https://www.theodinproject.com/lessons/node-path-javascript-library</a>.</p>
+    <form action="" method="" id="form" style="display: none;">
+        <div class="form-header-container">
+            <h2 class="form-header">Create New Book</h2>
+            <button class="close-form btn"><img src="./imgs/close btn.svg" alt="Close Form"></button>
         </div>
-        <form action="" method="" id="form" style="display: none;">
-            <div class="form-header-container">
-                <h2 class="form-header">Create New Book</h2>
-                <button class="close-form btn"><img src="./imgs/close btn.svg" alt="Close Form"></button>
+        <div class="form-text-fields">
+            <div class="title-form form-container">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                <div id="title-error-div"></div>
             </div>
-            <div class="form-text-fields">
-                <div class="title-form form-container">
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" required>
-                    <div id="title-error-div"></div>
-                </div>
-                <div class="author-form form-container">
-                    <label for="author">Author:</label>
-                    <input type="text" id="author" name="author" required>
-                </div>
-                <div class="page-form form-container">
-                    <label for="pages">Pages:</label>
-                    <input type="number" id="pages" name="pages" required>
-                </div>
+            <div class="author-form form-container">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
             </div>
-            <div class="form-click-fields">
-                <div class="radio-form container">
-                    <input type="checkbox" id="read-checkbox" name="status" value="Read">
-                    <label for="read">I've read it</label>
-                </div>
-                <div class="submit-form container">
-                    <button type="submit" id="add-book-btn" class="btn">Add Book</button>
-                </div>
+            <div class="page-form form-container">
+                <label for="pages">Pages:</label>
+                <input type="number" id="pages" name="pages" required>
             </div>
-        </form>
+        </div>
+        <div class="form-click-fields">
+            <div class="radio-form container">
+                <input type="checkbox" id="read-checkbox" name="status" value="Read">
+                <label for="read">I've read it</label>
+            </div>
+            <div class="submit-form container">
+                <button type="submit" id="add-book-btn" class="btn">Add Book</button>
+            </div>
+        </div>
+    </form>
+    <div class="about-section" style="display: none;" >
+        <div class="about-header-container">
+            <h2 class="about-header">About the Project:</h2>
+            <button class="close-about btn"><img src="./imgs/close btn.svg" alt="Close About Section"></button>
+        </div>
+        <p class="about-txt">This project is an assignment from The Odin Project's Full Stack JavaScript curriculum. The project involves creating a book library application that allows users to add and remove books, as well as update their reading status. The Odin Project is an online platform that provides free and open-source web development courses. The application involves creating a simple array to store book objects, writing a function to add books to the array, displaying the books on the page, and creating buttons to remove books and update their reading status. For more information about the project and the Full Stack JavaScript course, please visit: <a class="link-to-odin" href="https://www.theodinproject.com/lessons/node-path-javascript-library">https://www.theodinproject.com/lessons/node-path-javascript-library</a>.</p>
+    </div>
+    <div class="main-content">
         <div class="books container">
             
         </div>
