@@ -118,6 +118,10 @@ body {
   border: none;
 }
 
+.btn:hover{
+  opacity: 0.5;
+}
+
 
 .header-container {
   width: 100vw;
@@ -155,9 +159,6 @@ body {
 
 .main-content {
   width: 100vw;
-  /* padding: var(--medium-size); */
-  /* margin-top: 145px; */
-  /* margin-bottom: 80px; */
   position: absolute;
   top: 115px;
   z-index: 0;
@@ -182,12 +183,7 @@ body {
   width: fit-content;
   justify-content: center;
   align-items: center;
-  /* margin-bottom: 48px; */
   margin: 1rem auto 1rem auto;
-  /* margin-left: auto; */
-  /* margin-right: auto; */
-
-  /* margin: var(--medium-size) auto; */
 }
 
 .book-content {
@@ -200,7 +196,6 @@ body {
 
 .book-btns {
   display: flex;
-  /* flex-direction: column; */
   gap: var(--tiny-size);
   min-width: var(--card-btns-mw);
 }
@@ -373,6 +368,11 @@ footer {
   .book-btns{
     min-width: var(--card-btns-mw);
   }
+
+  input[type=checkbox] {
+    transform: scale(2.5);
+    margin-right: 0.8rem;
+  }
 }
 
 
@@ -455,7 +455,7 @@ footer {
 
   #form,
   .about-section{
-    top:25vh;
+    top:20vh;
     max-width: 40vw;
     /* margin: auto; */
   }
@@ -467,7 +467,7 @@ footer {
 
   input[type="text"],
   input[type="number"]{
-    line-height: 60px;
+    line-height: 50px;
     font-size: var(--fs-medium);
   }
 
@@ -486,5 +486,10 @@ footer {
   
   .book-card {
     margin: 1rem;
+  }
+
+  .form-close-btn-pic,
+  .about-btn-pic{
+    min-width: var(--fs-large);
   }
 }
