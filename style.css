@@ -398,12 +398,12 @@ footer {
 
   #form,
   .about-section{
-    top:20vh;
+    top:18vh;
     max-width: 40vw;
   }
 
   .form-text-fields,
-  .form-click-fields{
+  .form-click-fields{git 
     padding: 1rem 6rem;
   }
 
@@ -454,7 +454,7 @@ footer {
 
   #form,
   .about-section{
-    top:20vh;
+    top:18vh;
     max-width: 40vw;
     /* margin: auto; */
   }
