@@ -78,9 +78,9 @@ select {
 
 :root {
   --ff: 'Poppins', sans-serif;
-  --fs-small: 1rem;
-  --fs-medium: 1.5rem;
-  --fs-large: 2rem;
+  --fs-small: 0.5rem;
+  --fs-medium: 1rem;
+  --fs-large: 1.5rem;
 
   --primary-clr: #FFFFFF;
   --secondary-clr: #00C6CF;
@@ -91,10 +91,10 @@ select {
 
   --border-radius: 6px;
 
-  --tiny-size: 0.5rem;
-  --small-size: 1rem;
-  --medium-size: 1.5rem;
-  --large-size: 2rem;
+  --tiny-size: 0.2rem;
+  --small-size: 0.5rem;
+  --medium-size: 1rem;
+  --large-size: 1.5rem;
 }
 
 
@@ -125,6 +125,7 @@ body {
   gap: 2rem;
   padding: var(--small-size) var(--medium-size);
   position: fixed;
+  z-index: 1;
   background-color: var(--secondary-clr);
 }
 
@@ -141,7 +142,7 @@ body {
 
 
 .new-book.btn {
-  margin: auto;
+  /* margin: auto; */
   width: fit-content;
   background-color: var(--primary-clr);
   color: var(--secondary-clr);
@@ -151,10 +152,12 @@ body {
 .main-content {
   width: 100vw;
   /* padding: var(--medium-size); */
-  margin-top: 145px;
-  margin-bottom: 60px;
-  /* position: absolute;
-  top: 15vh; */
+  /* margin-top: 145px; */
+  /* margin-bottom: 80px; */
+  position: absolute;
+  top: 115px;
+  z-index: 0;
+  border: 2px blue solid;
 }
 
 /*Books section*/
@@ -172,11 +175,15 @@ body {
   width: fit-content;
   justify-content: center;
   align-items: center;
-  margin: var(--medium-size) auto;
+  margin-bottom: 48px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* margin: var(--medium-size) auto; */
 }
 
 .book-content {
-  margin-bottom: var(--tiny-size);
+  /* margin-bottom: var(--tiny-size); */
 }
 
 .details {
@@ -187,12 +194,12 @@ body {
   display: flex;
   /* flex-direction: column; */
   gap: var(--tiny-size);
-  min-width: 223px;
+  /* min-width: 223px; */
 }
 
 .remove.btn,
 .status.btn {
-  margin: auto;
+  /* margin: auto; */
   padding: var(--tiny-size);
   font-size: var(--fs-small);
 }
@@ -202,12 +209,13 @@ body {
   border: 1px var(--accent-clr) solid;
   border-radius: var(--border-radius);
   background-color: var(--primary-clr);
-  margin: 0 var(--small-size);
+  /* margin: 0 var(--small-size); */
   position: sticky;
   top: 20vh;
   z-index: 1;
   -webkit-box-shadow: 3px -1px 13px 3px rgba(24,72,59,0.56); 
   box-shadow: 3px -1px 13px 3px rgba(24,72,59,0.56);
+  border: 2px green solid;
 }
 
 .form-header-container {
@@ -269,7 +277,7 @@ input[type=checkbox] {
   position: sticky;
   top: 20vh;
   z-index: 1;
-  margin: 0 var(--small-size);
+  /* margin: 0 var(--small-size); */
   -webkit-box-shadow: 3px -1px 13px 3px rgba(24,72,59,0.56); 
   box-shadow: 3px -1px 13px 3px rgba(24,72,59,0.56);
 }
@@ -284,8 +292,13 @@ input[type=checkbox] {
 }
 
 h2.about-header {
-  margin: var(--tiny-size) 0;
+  /* margin: var(--tiny-size) 0; */
+  font-size: var(--fs-medium);
 }
+
+p.about-txt{
+  font-size: var(--fs-medium);
+ }
 
 .close-about.btn {
   background-color: var(--primary-clr);
