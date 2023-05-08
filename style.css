@@ -78,7 +78,7 @@ select {
 
 :root {
   --ff: 'Poppins', sans-serif;
-  --fs-small: 0.5rem;
+  --fs-small: 0.8rem;
   --fs-medium: 1rem;
   --fs-large: 1.5rem;
 
@@ -142,10 +142,12 @@ body {
 
 
 .new-book.btn {
-  /* margin: auto; */
+  margin: auto;  
   width: fit-content;
   background-color: var(--primary-clr);
   color: var(--secondary-clr);
+  -webkit-box-shadow: 3px -1px 13px 3px var(--fc-secondary); 
+  box-shadow: 3px -1px 13px 3px var(--fc-secondary);
 }
 
 
@@ -157,13 +159,16 @@ body {
   position: absolute;
   top: 115px;
   z-index: 0;
-  border: 2px blue solid;
 }
 
 /*Books section*/
 .books.container {
   display: flex;
   flex-direction: column;
+}
+
+.books.container:last-child{
+  margin-bottom: 50px;
 }
 
 .book-card {
@@ -175,15 +180,16 @@ body {
   width: fit-content;
   justify-content: center;
   align-items: center;
-  margin-bottom: 48px;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-bottom: 48px; */
+  margin: 1rem auto 1rem auto;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
 
   /* margin: var(--medium-size) auto; */
 }
 
 .book-content {
-  /* margin-bottom: var(--tiny-size); */
+  margin-bottom: var(--tiny-size);
 }
 
 .details {
@@ -199,9 +205,9 @@ body {
 
 .remove.btn,
 .status.btn {
-  /* margin: auto; */
+  margin: auto;
   padding: var(--tiny-size);
-  font-size: var(--fs-small);
+  font-size: var(--fs-medium);
 }
 
 /* Form */
@@ -209,13 +215,12 @@ body {
   border: 1px var(--accent-clr) solid;
   border-radius: var(--border-radius);
   background-color: var(--primary-clr);
-  /* margin: 0 var(--small-size); */
+  margin: 0 var(--small-size);  
   position: sticky;
   top: 20vh;
   z-index: 1;
   -webkit-box-shadow: 3px -1px 13px 3px rgba(24,72,59,0.56); 
   box-shadow: 3px -1px 13px 3px rgba(24,72,59,0.56);
-  border: 2px green solid;
 }
 
 .form-header-container {
@@ -277,7 +282,7 @@ input[type=checkbox] {
   position: sticky;
   top: 20vh;
   z-index: 1;
-  /* margin: 0 var(--small-size); */
+  margin: 0 var(--small-size);
   -webkit-box-shadow: 3px -1px 13px 3px rgba(24,72,59,0.56); 
   box-shadow: 3px -1px 13px 3px rgba(24,72,59,0.56);
 }
@@ -297,7 +302,7 @@ h2.about-header {
 }
 
 p.about-txt{
-  font-size: var(--fs-medium);
+  font-size: var(--fs-small);
  }
 
 .close-about.btn {
