@@ -124,7 +124,7 @@ body {
   background-color: var(--primary-clr);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   padding: var(--small-size) var(--medium-size);
   position: fixed;
   z-index: 1;
@@ -331,12 +331,6 @@ p.about-txt {
 }
 
 
-
-
-
-
-
-
 /* Footer */
 footer {
   background-color: var(--secondary-clr);
@@ -347,4 +341,150 @@ footer {
   padding: 1.1rem;
   position: fixed;
   bottom: 0;
+}
+
+@media (min-width:404px){
+  :root{
+    --fs-small: 1rem;
+    --fs-medium: 1.5rem;
+    --fs-large: 2rem;
+    
+    --border-radius: 6px;
+  
+    --tiny-size: 0.5rem;
+    --small-size: 1rem;
+    --medium-size: 1.5rem;
+    --large-size: 2rem;
+  
+    --card-btns-mw: 315px;
+  }
+
+  .main-content {
+    top: 165px;
+  }
+
+  #form,
+  .about-section{
+    top:25vh;
+    max-width: 70vw;
+    margin: auto;
+  }
+
+  .book-btns{
+    min-width: var(--card-btns-mw);
+  }
+}
+
+
+@media (min-width:840px){
+  :root{
+    --fs-small: 1rem;
+    --fs-medium: 1.5rem;
+    --fs-large: 2rem;
+    
+    --border-radius: 6px;
+  
+    --tiny-size: 0.5rem;
+    --small-size: 1rem;
+    --medium-size: 1.5rem;
+    --large-size: 2rem;
+  
+    --card-btns-mw: 315px;
+  }
+
+  .main-content {
+    top: 165px;
+  }
+
+  #form,
+  .about-section{
+    top:25vh;
+    max-width: 40vw;
+    /* margin: auto; */
+  }
+
+  .form-text-fields,
+  .form-click-fields{
+    padding: 1rem 6rem;
+  }
+
+  input[type="text"],
+  input[type="number"]{
+    line-height: 45px;
+    font-size: var(--fs-medium);
+  }
+
+
+  .book-btns{
+    min-width: var(--card-btns-mw);
+  }
+
+  .books.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .book-card {
+    margin: 1rem;
+  }
+}
+
+
+@media (min-width:1564px){
+  :root{
+    --fs-small: 1.5rem;
+    --fs-medium: 2rem;
+    --fs-large: 2.5rem;
+    
+    --border-radius: 6px;
+  
+    --tiny-size: 1rem;
+    --small-size: 1.5rem;
+    --medium-size: 2rem;
+    --large-size: 2.5rem;
+  
+    --card-btns-mw: 445px;
+  }
+
+  .main-content {
+    top: 205px;
+  }
+
+  #form,
+  .about-section{
+    top:25vh;
+    max-width: 40vw;
+    /* margin: auto; */
+  }
+
+  .form-text-fields,
+  .form-click-fields{
+    padding: 1rem 6rem;
+  }
+
+  input[type="text"],
+  input[type="number"]{
+    line-height: 60px;
+    font-size: var(--fs-medium);
+  }
+
+
+  .book-btns{
+    min-width: var(--card-btns-mw);
+  }
+
+  .books.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .book-card {
+    margin: 1rem;
+  }
 }
